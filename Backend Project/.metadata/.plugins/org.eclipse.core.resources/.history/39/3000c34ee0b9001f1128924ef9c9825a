@@ -1,0 +1,115 @@
+package com.example.demo.service;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.regex.Pattern;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    // Regular Expression for password validation
+    private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$";
+
+    public String register(User user, String confirmPassword) {
+        // Validate password
+        if (!Pattern.matches(PASSWORD_PATTERN, user.getPassword())) {
+            return "Password must be alphanumeric and include at least one special character.";
+        }
+
+        // Validate confirmPassword
+        if (!user.getPassword().equals(confirmPassword)) {
+            return "Passwords do not match.";
+        }
+
+        // Check if email is already registered
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return "Email is already registered.";
+        }
+
+        userRepository.save(user);
+        return "User registered successfully!";
+    }
+
+    public Optional<User> login(String email, String password) {
+        return userRepository.findByUsername(email)
+                .filter(user -> user.getPassword().equals(password));
+    }
+
+    // Generate a password reset token for a user
+    public String generatePasswordResetToken(String email) {
+        Optional<User> userOptional = userRepository.findByUsername(email);
+
+        if (userOptional.isEmpty()) {
+            return "User not found with the given email.";
+        }
+
+        User user = userOptional.get();
+        String token = UUID.randomUUID().toString(); // Generate unique token
+        user.setPasswordResetToken(token);
+        user.setPasswordResetTokenExpiry(LocalDateTime.now().plusHours(1)); // Token expires in 1 hour
+        userRepository.save(user);
+
+        // Here, you'd integrate with an email service to send the reset link containing the token
+        return "Password reset token generated. Check your email for the reset link.";
+    }
+
+    // Validate password reset token
+    public String validatePasswordResetToken(String token) {
+        Optional<User> userOptional = userRepository.findByPasswordResetToken(token);
+
+        if (userOptional.isEmpty()) {
+            return "Invalid token.";
+        }
+
+        User user = userOptional.get();
+        if (user.getPasswordResetTokenExpiry().isBefore(LocalDateTime.now())) {
+            return "Token has expired.";
+        }
+
+        return "Token is valid.";
+    }
+
+    // Reset the user's password
+    public String resetPassword(String token, String newPassword, String confirmPassword) {
+        Optional<User> userOptional = userRepository.findByPasswordResetToken(token);
+
+        if (userOptional.isEmpty()) {
+            return "Invalid token.";
+        }
+
+        User user = userOptional.get();
+
+        // Check if the token has expired
+        if (user.getPasswordResetTokenExpiry().isBefore(LocalDateTime.now())) {
+            return "Token has expired.";
+        }
+
+        // Validate the new password
+        if (!Pattern.matches(PASSWORD_PATTERN, newPassword)) {
+            return "Password must be alphanumeric and include at least one special character.";
+        }
+
+        // Validate that new password and confirm password match
+        if (!newPassword.equals(confirmPassword)) {
+            return "Passwords do not match.";
+        }
+
+        // Update user's password and clear reset token
+        user.setPassword(newPassword);
+        user.setPasswordResetToken(null);
+        user.setPasswordResetTokenExpiry(null);
+        userRepository.save(user);
+
+        return "Password reset successfully!";
+    }
+}

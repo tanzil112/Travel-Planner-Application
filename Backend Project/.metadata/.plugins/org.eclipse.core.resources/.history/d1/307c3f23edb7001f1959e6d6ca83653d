@@ -1,0 +1,39 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    // Registration Endpoint
+    @PostMapping("/register")
+    public String registerUser(@RequestBody User user) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return "Error: Username already exists!";
+        }
+        // Encrypt the password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return "User registered successfully!";
+    }
+
+    // Login Endpoint
+    @PostMapping("/login")
+    public String loginUser(@RequestBody User user) {
+        return userRepository.findByUsername(user.getUsername())
+                .filter(existingUser -> passwordEncoder.matches(user.getPassword(), existingUser.getPassword()))
+                .map(existingUser -> "Login successful!")
+                .orElse("Invalid username or password");
+    }
+}
