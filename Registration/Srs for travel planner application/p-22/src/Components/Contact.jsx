@@ -11,17 +11,17 @@ function Contact () {
       <form>
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your Full Name" required/>
+          <input type="text" id="name" className='inputs' placeholder="Your Full Name" required/>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Your Email Address" required/>
+          <input type="email" id="email" placeholder="Your Email Address" className='inputs'  required/>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Your Message..." required></textarea>
+          <textarea id="message" rows="5" placeholder="Your Message..."className='inputs'  required></textarea>
         </div>
 
         <button type="submit">Send Message</button>
