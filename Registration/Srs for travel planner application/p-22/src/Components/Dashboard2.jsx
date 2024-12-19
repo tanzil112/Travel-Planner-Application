@@ -35,9 +35,7 @@ function Dashboard2() {
         </div>
         <div className="details-container">
           <div id="details">
-            <span>Search your destination :</span>
-            <span>Select your date :</span>
-            <span>Max price :</span>
+            <span>Search :</span>
           </div>
           <div id="input">
             <input
@@ -47,16 +45,13 @@ function Dashboard2() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <input
-              type='date'
-              placeholder='Select date'
-              style={{ borderRadius: "100px" }}
-            />
-            <Range />
           </div>
         </div>
-
-        <h2 id='pd'>Popular Destinations</h2>
+          
+       <div className="pd">
+        Popular Destinations
+       </div>
+        
 
         <Destinations searchTerm={searchTerm} />
       </div>
