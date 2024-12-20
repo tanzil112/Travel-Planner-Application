@@ -1,0 +1,120 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "place_name": "Eiffel Tower",
+      "image_url": "eifil.jpg",
+      "description": "An iconic symbol of France, located in Paris."
+    },
+    {
+      "id": 2,
+      "place_name": "Taj Mahal",
+      "image_url": "g1-1.jpg",
+      "description": "A symbol of love in Agra, India."
+    },
+    {
+      "id": 3,
+      "place_name": "Great Wall of China",
+      "image_url": "china.jpg",
+      "description": "A historic wall stretching thousands of miles in China."
+    },
+    {
+      "id": 4,
+      "place_name": "Grand Canyon",
+      "image_url": "grand.jpg",
+      "description": "A breathtaking natural wonder in Arizona, USA."
+    },
+    {
+      "id": 5,
+      "place_name": "Machu Picchu",
+      "image_url": "machu.jpg",
+      "description": "An ancient Incan city located in the Peruvian Andes."
+    },
+    {
+      "id": 6,
+      "place_name": "Sydney Opera House",
+      "image_url": "opera.jpg",
+      "description": "A world-renowned performing arts center in Sydney, Australia."
+    },
+    {
+      "id": 7,
+      "place_name": "Colosseum",
+      "image_url": "colosseum.jpg",
+      "description": "A massive ancient amphitheater in Rome, Italy."
+    },
+    {
+      "id": 8,
+      "place_name": "Mount Fuji",
+      "image_url": "fuji.jpg",
+      "description": "A sacred and majestic volcano in Japan."
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "hotel_name": "Hotel Parisian Delight",
+      "images": [
+        "https://example.com/hotel1-room.jpg",
+        "https://example.com/hotel1-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Breakfast Included", "Pool", "Gym"],
+      "rating": 4.5,
+      "destination_id": 1
+    },
+    {
+      "id": 2,
+      "hotel_name": "Le Grand Hotel",
+      "images": [
+        "https://example.com/hotel2-room.jpg",
+        "https://example.com/hotel2-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Gym"],
+      "rating": 4.8,
+      "destination_id": 1
+    },
+    {
+      "id": 3,
+      "hotel_name": "Taj View Resort",
+      "images": [
+        "https://example.com/hotel3-room.jpg",
+        "https://example.com/hotel3-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Restaurant", "Pool", "Bar"],
+      "rating": 4.7,
+      "destination_id": 2
+    },
+    {
+      "id": 4,
+      "hotel_name": "Agra Heritage Hotel",
+      "images": [
+        "https://example.com/hotel4-room.jpg",
+        "https://example.com/hotel4-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Free Parking", "Restaurant", "Bar"],
+      "rating": 4.3,
+      "destination_id": 2
+    },
+    {
+      "id": 5,
+      "hotel_name": "Great Wall View Hotel",
+      "images": [
+        "https://example.com/hotel5-room.jpg",
+        "https://example.com/hotel5-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Restaurant", "Fitness Center"],
+      "rating": 4.6,
+      "destination_id": 3
+    },
+    {
+      "id": 6,
+      "hotel_name": "Grand Canyon Wilderness Resort",
+      "images": [
+        "https://example.com/hotel6-room.jpg",
+        "https://example.com/hotel6-lobby.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Outdoor Activities"],
+      "rating": 4.4,
+      "destination_id": 4
+    }
+  ]
+}

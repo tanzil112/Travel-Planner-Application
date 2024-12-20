@@ -1,0 +1,40 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    // Register user
+    @PostMapping("/register")
+    public String register(@RequestBody User user, @RequestParam String confirmPassword) {
+        // Validate confirmPassword
+        if (!user.getPassword().equals(confirmPassword)) {
+            return "Passwords do not match.";
+        }
+
+        // Save the user to the database
+        userRepository.save(user);
+
+        return "User registered successfully!";
+    }
+
+    // Login user
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        // Find user by username and handle Optional correctly
+        User existingUser = userRepository.findByUsername(user.getUsername()).orElse(null);
+        
+        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+            return "Login successful!";
+        }
+        return "Invalid username or password.";
+    }
+}
