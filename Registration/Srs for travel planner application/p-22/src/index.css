@@ -28,7 +28,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #fe6464;
+  color: #556b2f;
 }
 
 body {
@@ -147,7 +147,7 @@ button:focus-visible {
 .login-form {
   background-color: transparent;
   backdrop-filter: blur(20px);
-  padding: 20px;
+  padding:20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -157,31 +157,32 @@ button:focus-visible {
   color: white;
 
 }
-.password-container{
-  position: relative; 
+.password-container {
   display: flex;
   align-items: center;
+  position: relative; /* Keeps toggle button in the right place */
 }
 .toggle-password {
   position: absolute;
-  left: 300px;
+  right: 10px;
   cursor: pointer;
-  font-size: 1.2em;
-  color: #555;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 100%;
+  z-index: 1;
 }
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Space between input groups */
+  width: 100%;
+} 
 
 
 .login-input {
-  padding-left: 35px; 
-  height: 40px; 
-  width: 100%;
-  box-sizing: border-box;
+  width: 100%; /* Ensures the input field spans the container */
+  padding: 10px; /* Adds some inner spacing */
+  border: 1px solid #ccc; /* Adds a border */
+  border-radius: 4px; /* Optional: Adds rounded corners */
+  box-sizing: border-box; /* Includes padding and border in total width */
+  border-right: none; /* Remove any right border */
 }
 .password-container input{
   width: 360px;
@@ -233,11 +234,11 @@ button:focus-visible {
   background-position: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 30px;
 }
 .register-button {
   width: 40%;
-  padding: 10px;
   background-color: #d8f3fc;
   border: none;
   border-radius: 40px;
@@ -252,7 +253,7 @@ button:focus-visible {
   width: 100%;
   margin: 0;
   padding: 0;
- background-color: #2c3e50;
+ background-color: #6d945e;
   box-sizing: border-box;
 }
 .logo-container {
@@ -289,10 +290,19 @@ button:focus-visible {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #34495e;
+  background-color: #2c3e3e;
+  color: white;
   padding: 10px 0;
-  position: relative; /* Ensures Navbar stays below logo */
+  position: relative;
   z-index: 10;
+  transition: top 0.3s ease, background-color 0.3s ease;
+}
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -303,7 +313,7 @@ button:focus-visible {
   transition: color 0.3s ease, border-bottom 0.3s ease, font-weight 0.3s ease;
 }
 .navlink.active {
-  color: #e74c3c;
+  color: #6d945e;
   font-weight: bold;
 }
 .destination{
@@ -314,33 +324,48 @@ button:focus-visible {
   font-weight: bold;
   color: rgb(255, 253, 249);
 }
-.details-container{
-  height: 30vh;
-  width: 80vw;
-  background-color: #1a1a1a;
- padding: 40px;
-margin: 0px 10%;
-border-radius: 20px;
-}
-#details{
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 50px 0px;
-}
+
+
 #details, #input {
   margin: 0; 
   padding: 0; 
 }
+.details-container{
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10px;
+ gap: 10px;
+  font-size: 25px;
+  color: white;
+  font-weight: 500;
+}
+
 #input{
   display: flex;
-  justify-content: space-around;
-  padding:20px;
+  justify-content: center;
+}
+#input .input {
+  padding: 10px 20px; /* Adjust padding for the input field */
+  border: 1px solid #ccc; /* Optional: Add border */
+  font-size: 16px;
+  width: 40vw;
+}
+input[type="text"], input[type="date"] {
+  width: 100%; /* Ensure inputs take full width */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  padding: 10px;
+  
 }
 #input input{
 height: 50px;
 width: 30%;
+}
+.pd{
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 300px;
+  padding: 30px 50px;
 }
 
 ::placeholder{
@@ -354,7 +379,7 @@ width: 30%;
   text-align: center;
 }
 #scrolling{
-  background-color: #5d7286;
+  background-color: #4e6d3c;
   padding: 45px 0;
 
  color: white;
@@ -455,7 +480,7 @@ width: 30%;
 
 /* Links and Buttons */
 .terms-section a {
-  color: #3498db;
+  color: #fcfcfc;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -467,7 +492,7 @@ width: 30%;
 
 button {
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #fcfcfc;
   color: white;
   border: none;
   border-radius: 25px;
@@ -478,7 +503,7 @@ button {
 }
 
 button:hover {
-  background-color: #e74c3c;
+  background-color: #556b2f;
   transform: scale(1.05);
 }
 
@@ -500,23 +525,26 @@ button:hover {
 }
 
 /* Responsive for Tablets */
-@media (max-width: 1024px) {
-  .terms-container {
-    padding: 20px;
-    margin: 20px auto;
+@media screen and (max-width: 768px) {
+  /* Adjust layout for tablets and smaller screens */
+  .details-container {
+    flex-direction: column; /* Stack the elements */
+    padding: 10px;
   }
 
-  .terms-header {
-    font-size: 1.2em;
+  .input {
+    width: 80%; /* Slightly reduce width for smaller screens */
+    max-width: 100%; /* Let inputs take full width */
   }
 
-  .terms-section h2 {
-    font-size: 1.2em;
+  #header1 {
+    padding: 15px;
   }
 
-  button {
-    width: 100%;
-    font-size: small;
+  .hello{
+    font-size: 2.5rem; /* Adjust heading font size */
+    padding: 20px 50px;
+    color: rebeccapurple;
   }
 }
 .contact-container {
@@ -536,6 +564,7 @@ button:hover {
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  
 }
 
 .contact-description {
@@ -559,6 +588,7 @@ label {
   margin-bottom: 8px;
   color: #f39c12;
   font-size: 1em;
+  text-align: left;
 }
 
 .inputs, textarea {
@@ -583,7 +613,7 @@ textarea {
 }
 
 button {
-  background-color: #3498db;
+  background-color: #34495e;
   color: #fff;
   border: none;
   padding: 12px 30px;
@@ -594,7 +624,7 @@ button {
 }
 
 button:hover {
-  background-color: #e74c3c;
+  background-color: #945e6d;
   transform: scale(1.05);
 }
 
@@ -625,44 +655,198 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .contact-header {
-    font-size: 2em;
+@media screen and (max-width: 480px) {
+  /* Adjust layout for mobile screens */
+  .details-container {
+    flex-direction: column;
+    padding: 5px;
   }
 
-  .contact-description {
-    font-size: 1em;
+  .input {
+    width: 90%; /* Make inputs nearly full width */
+    max-width: 100%;
   }
 
-  input, textarea {
-    font-size: 0.9em;
-  }
-
-  button {
-    font-size: 1em;
-    padding: 10px 20px;
-  }
 }
-.Image{
-  height: 300px;
+#header1 {
   padding: 10px;
 }
+
+
+
+.signin-btn {
+  font-size: 12px; /* Adjust the sign-out button size */
+}
+
+.Image{
+height: 300px;
+padding: 10px;
+}
 .col{
-  padding: 70px 10px;
-  height: 450px;
+padding: 70px 10px;
+height: 450px;
 }
 .card{
 border-radius: 30px;
 gap: 0px;
 padding: 10px 10px;
+background-color:#FFF9C4;
+color: black;
 }
 .main-card{
-  height: 1000px;
-  padding: 70px 40px;
+height: 1000px;
+padding: 0px 40px;
 }
 #hotels{
+display: flex;
+align-items: center;
+justify-content: center ;
+padding: 70px;
+}
+.main-hotels{
+height: 2000px;
+background-color: #6d945e;
+
+}
+.itinerary{
+
+justify-content: center;
+display: flex;
+align-items: baseline;
+gap: 20px;
+}
+.itinerary input{
+width: 30vw;
+border: 2px solid black;
+border-radius: 10px;
+}
+.itenary{
+height: 200vh;
+width: 100%;
+background-color: #6d945e;
+}
+.flights-section {
+width: 100%;
+min-height: 100vh;
+background-color: #6d945e;
+padding: 20px;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+h1 {
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.flight-search-container {
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 900px;
+box-sizing: border-box;
+margin-top: 20px;
+}
+
+
+
+.search-form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.search-form input {
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 100%;
+}
+
+.search-form button {
+padding: 10px;
+font-size: 16px;
+background-color: #6d945e;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+max-width: 200px;
+}
+
+.search-form button:hover {
+  background-color: #568543;
+}
+.rotating-star {
+  display: inline-block;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.itinerary-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+  margin: 15px auto; /* Centers the entire item horizontally */
+}
+
+.button-row {
   display: flex;
-  align-items: center;
-  justify-content: center ;
-  padding: 70px;
+  justify-content: center; /* Horizontally centers the buttons */
+  align-items: center; /* Vertically centers the buttons if needed */
+  gap: 15px; /* Adds space between buttons */
+  margin-bottom: 15px;
+}
+
+.button-row button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.button-row button:hover {
+  background-color: #0056b3;
+}
+
+.itinerary-names-list {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none; /* Removes the default black dot */
+}
+
+.itinerary-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.itinerary-name::before {
+  content: "• "; /* Adds the green dot before each name */
+  color: #4caf50;
+}
+
+.itinerary-shared-status {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
 }

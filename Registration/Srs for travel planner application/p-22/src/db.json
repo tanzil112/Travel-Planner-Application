@@ -54,7 +54,7 @@
       "id": 1,
       "hotel_name": "Hotel Parisian Delight",
       "images": [
-        "https://example.com/hotel1-room.jpg",
+        "hotel.jpg",
         "https://example.com/hotel1-lobby.jpg"
       ],
       "amenities": ["Free Wi-Fi", "Breakfast Included", "Pool", "Gym"],
@@ -65,8 +65,7 @@
       "id": 2,
       "hotel_name": "Le Grand Hotel",
       "images": [
-        "https://example.com/hotel2-room.jpg",
-        "https://example.com/hotel2-lobby.jpg"
+     "hotel.jpg"
       ],
       "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Gym"],
       "rating": 4.8,
@@ -76,8 +75,8 @@
       "id": 3,
       "hotel_name": "Taj View Resort",
       "images": [
-        "https://example.com/hotel3-room.jpg",
-        "https://example.com/hotel3-lobby.jpg"
+        "hotel.jpg"
+    
       ],
       "amenities": ["Free Wi-Fi", "Restaurant", "Pool", "Bar"],
       "rating": 4.7,
@@ -87,8 +86,9 @@
       "id": 4,
       "hotel_name": "Agra Heritage Hotel",
       "images": [
-        "https://example.com/hotel4-room.jpg",
-        "https://example.com/hotel4-lobby.jpg"
+        "hotel.jpg"
+
+     
       ],
       "amenities": ["Free Wi-Fi", "Free Parking", "Restaurant", "Bar"],
       "rating": 4.3,
@@ -98,8 +98,9 @@
       "id": 5,
       "hotel_name": "Great Wall View Hotel",
       "images": [
-        "https://example.com/hotel5-room.jpg",
-        "https://example.com/hotel5-lobby.jpg"
+        "hotel.jpg"
+
+     
       ],
       "amenities": ["Free Wi-Fi", "Restaurant", "Fitness Center"],
       "rating": 4.6,
@@ -109,8 +110,9 @@
       "id": 6,
       "hotel_name": "Grand Canyon Wilderness Resort",
       "images": [
-        "https://example.com/hotel6-room.jpg",
-        "https://example.com/hotel6-lobby.jpg"
+        "hotel.jpg",
+        "abc.jpg"
+     
       ],
       "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Outdoor Activities"],
       "rating": 4.4,

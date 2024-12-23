@@ -25,9 +25,9 @@ const[hotels,setHotels]=useState([])
             <div class="card">
               <img src={ele.images[0]} class="card-img-top" alt="..."/>
               <div class="card-body">
-                <h5 class="card-title">{ele.hotel_name}</h5>
-                <p class="card-text">{ele.amenities}</p>
-                <p class="card-text">{ele.rating}</p>
+                <h5 class="card-title">Hotel name: {ele.hotel_name}</h5>
+                <p class="card-text">Amenities: {ele.amenities}</p>
+                <p class="card-text">Rating: {ele.rating} <i class="fa-solid fa-star rotating-star"></i></p>
 
               </div>
             </div>
