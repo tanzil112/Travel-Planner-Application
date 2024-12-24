@@ -16,6 +16,21 @@ const ItineraryItem = ({ itinerary, index, onUpdate, onDelete, onDuplicate, onSh
   };
 
   return (
+<<<<<<< HEAD
+    <li className="itinerary-item">
+      <div className="button-row">
+        <button onClick={handleEdit}>Edit</button>
+        <button onClick={() => onDelete(index)}>Delete</button>
+        <button onClick={() => onDuplicate(index)}>Duplicate</button>
+        <button onClick={handleShare}>Share</button>
+      </div>
+
+      <ul className="itinerary-names-list">
+        <li className="itinerary-name">{itinerary.name}</li>
+      </ul>
+
+      <div className="itinerary-shared-status">
+=======
     <li className="item">
       {itinerary.name}
       <div id="buttons">
@@ -26,6 +41,7 @@ const ItineraryItem = ({ itinerary, index, onUpdate, onDelete, onDuplicate, onSh
       </div>
       
       <div>
+>>>>>>> b5b6147 (Your commit message here)
         {itinerary.sharedWith.length > 0 ? (
           <p>Shared with: {itinerary.sharedWith.join(", ")}</p>
         ) : (

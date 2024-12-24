@@ -10,9 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+<<<<<<< HEAD
+=======
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+>>>>>>> b5b6147 (Your commit message here)
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "firebase": "^11.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"

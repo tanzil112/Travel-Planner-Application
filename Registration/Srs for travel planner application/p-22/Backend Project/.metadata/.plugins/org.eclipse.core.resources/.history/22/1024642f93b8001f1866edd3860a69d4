@@ -1,0 +1,77 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:5173")
+public class AuthController {
+	@Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private UserService userService;  // Use UserService for logic related to Forgot Password
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    // Registration Endpoint
+    @PostMapping("/register")
+    public String registerUser(@RequestBody User user) {
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return "Error: Username already exists!";
+        }
+        // Encrypt the password before saving
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return "User registered successfully!";
+    }
+
+    // Login Endpoint
+    @PostMapping("/login")
+    public String loginUser(@RequestBody User user) {
+        // Check if username and password are provided
+        if (user.getUsername() == null || user.getUsername().isEmpty() ||
+            user.getPassword() == null || user.getPassword().isEmpty()) {
+            return "Username and password cannot be empty";
+        }
+
+        // Check if the username exists in the database
+        Optional<User> existingUserOptional = userRepository.findByUsername(user.getUsername());
+        if (existingUserOptional.isEmpty()) {
+            return "Invalid username or password"; // Username not found
+        }
+
+        // Validate the password
+        User existingUser = existingUserOptional.get();
+        if (passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
+            return "Login successful!";
+        } else {
+            return "Invalid username or password"; // Password mismatch
+        }
+    }
+
+    // Forgot Password Endpoint (Sends OTP to the user's email)
+    @PostMapping("/forgot-password")
+    public String forgotPassword(@RequestParam String username) {
+        return userService.forgotPassword(username);  // Use the service to handle OTP logic
+    }
+
+    // Verify OTP Endpoint
+    @PostMapping("/verify-otp")
+    public String verifyOtp(@RequestParam String username, @RequestParam String otp) {
+        return userService.verifyOtp(username, otp);  // Use the service to validate OTP
+    }
+
+    // Reset Password Endpoint (Allows the user to reset password after OTP verification)
+    @PostMapping("/reset-password")
+    public String resetPassword(@RequestParam String username, @RequestParam String newPassword) {
+        return userService.resetPassword(username, newPassword);  // Use the service to reset the password
+    }
+}

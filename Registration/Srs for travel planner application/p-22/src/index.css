@@ -28,7 +28,11 @@ a {
   text-decoration: inherit;
 }
 a:hover {
+<<<<<<< HEAD
+  color: #556b2f;
+=======
   color: #fe6464;
+>>>>>>> b5b6147 (Your commit message here)
 }
 
 body {
@@ -147,7 +151,11 @@ button:focus-visible {
 .login-form {
   background-color: transparent;
   backdrop-filter: blur(20px);
+<<<<<<< HEAD
+  padding:20px;
+=======
   padding: 20px;
+>>>>>>> b5b6147 (Your commit message here)
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -157,6 +165,34 @@ button:focus-visible {
   color: white;
 
 }
+<<<<<<< HEAD
+.password-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Keeps toggle button in the right place */
+}
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Space between input groups */
+  width: 100%;
+} 
+
+
+.login-input {
+  width: 100%; /* Ensures the input field spans the container */
+  padding: 10px; /* Adds some inner spacing */
+  border: 1px solid #ccc; /* Adds a border */
+  border-radius: 4px; /* Optional: Adds rounded corners */
+  box-sizing: border-box; /* Includes padding and border in total width */
+  border-right: none; /* Remove any right border */
+=======
 .password-container{
   position: relative; 
   display: flex;
@@ -182,6 +218,7 @@ button:focus-visible {
   height: 40px; 
   width: 100%;
   box-sizing: border-box;
+>>>>>>> b5b6147 (Your commit message here)
 }
 .password-container input{
   width: 360px;
@@ -233,11 +270,19 @@ button:focus-visible {
   background-position: center;
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
+  align-items: flex-start;
+  padding: 30px;
+}
+.register-button {
+  width: 40%;
+=======
   align-items: center;
 }
 .register-button {
   width: 40%;
   padding: 10px;
+>>>>>>> b5b6147 (Your commit message here)
   background-color: #d8f3fc;
   border: none;
   border-radius: 40px;
@@ -252,7 +297,11 @@ button:focus-visible {
   width: 100%;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
+ background-color: #6d945e;
+=======
  background-color: #2c3e50;
+>>>>>>> b5b6147 (Your commit message here)
   box-sizing: border-box;
 }
 .logo-container {
@@ -289,10 +338,26 @@ button:focus-visible {
   display: flex;
   justify-content: space-around;
   align-items: center;
+<<<<<<< HEAD
+  background-color: #2c3e3e;
+  color: white;
+  padding: 10px 0;
+  position: relative;
+  z-index: 10;
+  transition: top 0.3s ease, background-color 0.3s ease;
+}
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+=======
   background-color: #34495e;
   padding: 10px 0;
   position: relative; /* Ensures Navbar stays below logo */
   z-index: 10;
+>>>>>>> b5b6147 (Your commit message here)
 }
 
 
@@ -303,7 +368,11 @@ button:focus-visible {
   transition: color 0.3s ease, border-bottom 0.3s ease, font-weight 0.3s ease;
 }
 .navlink.active {
+<<<<<<< HEAD
+  color: #6d945e;
+=======
   color: #e74c3c;
+>>>>>>> b5b6147 (Your commit message here)
   font-weight: bold;
 }
 .destination{
@@ -314,6 +383,10 @@ button:focus-visible {
   font-weight: bold;
   color: rgb(255, 253, 249);
 }
+<<<<<<< HEAD
+
+
+=======
 .details-container{
   height: 30vh;
   width: 80vw;
@@ -329,19 +402,58 @@ border-radius: 20px;
   align-items: center;
   padding: 50px 0px;
 }
+>>>>>>> b5b6147 (Your commit message here)
 #details, #input {
   margin: 0; 
   padding: 0; 
 }
+<<<<<<< HEAD
+.details-container{
+  display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10px;
+ gap: 10px;
+  font-size: 25px;
+  color: white;
+  font-weight: 500;
+}
+
+#input{
+  display: flex;
+  justify-content: center;
+}
+#input .input {
+  padding: 10px 20px; /* Adjust padding for the input field */
+  border: 1px solid #ccc; /* Optional: Add border */
+  font-size: 16px;
+  width: 40vw;
+}
+input[type="text"], input[type="date"] {
+  width: 100%; /* Ensure inputs take full width */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  padding: 10px;
+  
+=======
 #input{
   display: flex;
   justify-content: space-around;
   padding:20px;
+>>>>>>> b5b6147 (Your commit message here)
 }
 #input input{
 height: 50px;
 width: 30%;
 }
+<<<<<<< HEAD
+.pd{
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 300px;
+  padding: 30px 50px;
+}
+=======
+>>>>>>> b5b6147 (Your commit message here)
 
 ::placeholder{
   color: rgb(167, 164, 164);
@@ -354,7 +466,11 @@ width: 30%;
   text-align: center;
 }
 #scrolling{
+<<<<<<< HEAD
+  background-color: #4e6d3c;
+=======
   background-color: #5d7286;
+>>>>>>> b5b6147 (Your commit message here)
   padding: 45px 0;
 
  color: white;
@@ -455,7 +571,11 @@ width: 30%;
 
 /* Links and Buttons */
 .terms-section a {
+<<<<<<< HEAD
+  color: #fcfcfc;
+=======
   color: #3498db;
+>>>>>>> b5b6147 (Your commit message here)
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -467,7 +587,11 @@ width: 30%;
 
 button {
   padding: 10px 20px;
+<<<<<<< HEAD
+  background-color: #fcfcfc;
+=======
   background-color: #3498db;
+>>>>>>> b5b6147 (Your commit message here)
   color: white;
   border: none;
   border-radius: 25px;
@@ -478,7 +602,11 @@ button {
 }
 
 button:hover {
+<<<<<<< HEAD
+  background-color: #556b2f;
+=======
   background-color: #e74c3c;
+>>>>>>> b5b6147 (Your commit message here)
   transform: scale(1.05);
 }
 
@@ -500,6 +628,28 @@ button:hover {
 }
 
 /* Responsive for Tablets */
+<<<<<<< HEAD
+@media screen and (max-width: 768px) {
+  /* Adjust layout for tablets and smaller screens */
+  .details-container {
+    flex-direction: column; /* Stack the elements */
+    padding: 10px;
+  }
+
+  .input {
+    width: 80%; /* Slightly reduce width for smaller screens */
+    max-width: 100%; /* Let inputs take full width */
+  }
+
+  #header1 {
+    padding: 15px;
+  }
+
+  .hello{
+    font-size: 2.5rem; /* Adjust heading font size */
+    padding: 20px 50px;
+    color: rebeccapurple;
+=======
 @media (max-width: 1024px) {
   .terms-container {
     padding: 20px;
@@ -517,6 +667,7 @@ button:hover {
   button {
     width: 100%;
     font-size: small;
+>>>>>>> b5b6147 (Your commit message here)
   }
 }
 .contact-container {
@@ -536,6 +687,10 @@ button:hover {
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
+<<<<<<< HEAD
+  
+=======
+>>>>>>> b5b6147 (Your commit message here)
 }
 
 .contact-description {
@@ -559,6 +714,10 @@ label {
   margin-bottom: 8px;
   color: #f39c12;
   font-size: 1em;
+<<<<<<< HEAD
+  text-align: left;
+=======
+>>>>>>> b5b6147 (Your commit message here)
 }
 
 .inputs, textarea {
@@ -583,7 +742,11 @@ textarea {
 }
 
 button {
+<<<<<<< HEAD
+  background-color: #34495e;
+=======
   background-color: #3498db;
+>>>>>>> b5b6147 (Your commit message here)
   color: #fff;
   border: none;
   padding: 12px 30px;
@@ -594,7 +757,11 @@ button {
 }
 
 button:hover {
+<<<<<<< HEAD
+  background-color: #945e6d;
+=======
   background-color: #e74c3c;
+>>>>>>> b5b6147 (Your commit message here)
   transform: scale(1.05);
 }
 
@@ -625,6 +792,38 @@ button:hover {
 }
 
 /* Responsive Design */
+<<<<<<< HEAD
+@media screen and (max-width: 480px) {
+  /* Adjust layout for mobile screens */
+  .details-container {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .input {
+    width: 90%; /* Make inputs nearly full width */
+    max-width: 100%;
+  }
+
+}
+#header1 {
+  padding: 10px;
+}
+
+
+
+.signin-btn {
+  font-size: 12px; /* Adjust the sign-out button size */
+}
+
+.Image{
+height: 300px;
+padding: 10px;
+}
+.col{
+padding: 70px 10px;
+height: 450px;
+=======
 @media (max-width: 768px) {
   .contact-header {
     font-size: 2em;
@@ -650,11 +849,173 @@ button:hover {
 .col{
   padding: 70px 10px;
   height: 450px;
+>>>>>>> b5b6147 (Your commit message here)
 }
 .card{
 border-radius: 30px;
 gap: 0px;
 padding: 10px 10px;
+<<<<<<< HEAD
+background-color:#FFF9C4;
+color: black;
+}
+.main-card{
+height: 1000px;
+padding: 0px 40px;
+}
+#hotels{
+display: flex;
+align-items: center;
+justify-content: center ;
+padding: 70px;
+}
+.main-hotels{
+height: 2000px;
+background-color: #6d945e;
+
+}
+.itinerary{
+
+justify-content: center;
+display: flex;
+align-items: baseline;
+gap: 20px;
+}
+.itinerary input{
+width: 30vw;
+border: 2px solid black;
+border-radius: 10px;
+}
+.itenary{
+height: 200vh;
+width: 100%;
+background-color: #6d945e;
+}
+.flights-section {
+width: 100%;
+min-height: 100vh;
+background-color: #6d945e;
+padding: 20px;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+h1 {
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.flight-search-container {
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
+max-width: 900px;
+box-sizing: border-box;
+margin-top: 20px;
+}
+
+
+
+.search-form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.search-form input {
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 100%;
+}
+
+.search-form button {
+padding: 10px;
+font-size: 16px;
+background-color: #6d945e;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+max-width: 200px;
+}
+
+.search-form button:hover {
+  background-color: #568543;
+}
+.rotating-star {
+  display: inline-block;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.itinerary-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  max-width: 400px;
+  margin: 15px auto; /* Centers the entire item horizontally */
+}
+
+.button-row {
+  display: flex;
+  justify-content: center; /* Horizontally centers the buttons */
+  align-items: center; /* Vertically centers the buttons if needed */
+  gap: 15px; /* Adds space between buttons */
+  margin-bottom: 15px;
+}
+
+.button-row button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.button-row button:hover {
+  background-color: #0056b3;
+}
+
+.itinerary-names-list {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none; /* Removes the default black dot */
+}
+
+.itinerary-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.itinerary-name::before {
+  content: "• "; /* Adds the green dot before each name */
+  color: #4caf50;
+}
+
+.itinerary-shared-status {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+=======
 }
 .main-card{
   height: 1000px;
@@ -665,4 +1026,5 @@ padding: 10px 10px;
   align-items: center;
   justify-content: center ;
   padding: 70px;
+>>>>>>> b5b6147 (Your commit message here)
 }

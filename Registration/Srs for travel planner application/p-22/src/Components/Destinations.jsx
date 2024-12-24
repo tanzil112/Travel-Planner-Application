@@ -27,8 +27,13 @@ function Destinations({ searchTerm }) {
             <div className="card">
               <img src={ele.image_url} className="card-img-top Image" alt={ele.place_name} />
               <div className="card-body">
+<<<<<<< HEAD
+                <h5 className="card-title">Place name: { ele.place_name}</h5>
+                <p className="card-text">Description: {ele.description}</p>
+=======
                 <h5 className="card-title">{ele.place_name}</h5>
                 <p className="card-text">{ele.description}</p>
+>>>>>>> b5b6147 (Your commit message here)
               </div>
             </div>
           </div>

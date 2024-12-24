@@ -1,0 +1,32 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:5173") // Allowing requests from React (localhost:3000)
+public class AuthController {
+
+    @Autowired
+    private UserService userService;
+
+    // Register user
+    @PostMapping("/register")
+    public String register(@RequestBody User user) {
+        // Call the service to register the user
+        return userService.register(user, user.getConfirmPassword());
+    }
+
+    // Login user
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        // Call the service to login the user
+        return userService.login(user.getUsername(), user.getPassword())
+                .map(u -> "Login successful!")
+                .orElse("Invalid username or password.");
+    }
+}
