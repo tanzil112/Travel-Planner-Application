@@ -55,6 +55,28 @@ function Dashboard2() {
 
         <Destinations searchTerm={searchTerm} />
       </div>
+      <footer id="footer">
+        <div className="header-container">
+        <p>Follow Us :</p>
+        <div class="hello">
+        
+        <span>© 2024 TRAVELLER PVT. LTD.</span><br/>
+        <span id='pe'>CountryIndiaUSA UAE</span>
+    </div>
+        </div>
+ 
+  <div class="footer-container">
+    <div class="icons">
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-square-x-twitter"></i>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-youtube"></i>
+    </div>
+    
+  </div>
+</footer>
+
+     
     </>
   );
 }

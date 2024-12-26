@@ -17,7 +17,7 @@ const ItineraryItem = ({ itinerary, index, onUpdate, onDelete, onDuplicate, onSh
 
   return (
     <li className="itinerary-item">
-      <div className="button-row">
+      <div className="buttons">
         <button onClick={handleEdit}>Edit</button>
         <button onClick={() => onDelete(index)}>Delete</button>
         <button onClick={() => onDuplicate(index)}>Duplicate</button>
@@ -32,7 +32,7 @@ const ItineraryItem = ({ itinerary, index, onUpdate, onDelete, onDuplicate, onSh
         {itinerary.sharedWith.length > 0 ? (
           <p>Shared with: {itinerary.sharedWith.join(", ")}</p>
         ) : (
-          <p>Not shared with anyone</p>
+          <p className="status">Not shared with anyone</p>
         )}
       </div>
     </li>

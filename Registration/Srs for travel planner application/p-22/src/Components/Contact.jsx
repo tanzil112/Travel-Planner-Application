@@ -3,6 +3,7 @@ import React from 'react';
 function Contact () {
   return (
     <>
+    <div className="main-contact">
     <div class="contact-container">
     <h1 class="contact-header">Contact Us</h1>
     <p class="contact-description">We'd love to hear from you! Whether you have questions, feedback, or need assistance, feel free to reach out.</p>
@@ -34,6 +35,7 @@ function Contact () {
       <p><strong>Email:</strong> <a href="mailto:support@traveler.com">support@traveler.com</a></p>
       <p><strong>Phone:</strong> +1 (555) 123-4567</p>
     </div>
+  </div>
   </div>
     </>
   );

@@ -1,48 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItineraryForm from "./ItineraryForm";
 import ItineraryList from "./ItineraryList";
 
-const Main = () => {
-  const [itineraries, setItineraries] = useState([]);
+function Itinerary() {
+  const [itineraries, setItineraries] = useState(() => {
+    // Load from local storage on initial render
+    const saved = localStorage.getItem("itineraries");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Save to local storage whenever itineraries change
+  useEffect(() => {
+    localStorage.setItem("itineraries", JSON.stringify(itineraries));
+  }, [itineraries]);
 
   const addItinerary = (name) => {
-    if (name.trim()) {
-      setItineraries([...itineraries, { name, sharedWith: [] }]); // Store itinerary with an empty sharedWith array
-    }
+    setItineraries((prev) => [...prev, { name, sharedWith: [] }]);
   };
 
   const updateItinerary = (index, newName) => {
-    const updatedItineraries = [...itineraries];
-    updatedItineraries[index].name = newName; // Update the name of the itinerary
-    setItineraries(updatedItineraries);
+    setItineraries((prev) =>
+      prev.map((itinerary, i) =>
+        i === index ? { ...itinerary, name: newName } : itinerary
+      )
+    );
   };
 
   const deleteItinerary = (index) => {
-    setItineraries(itineraries.filter((_, i) => i !== index)); // Remove itinerary from the list
+    setItineraries((prev) => prev.filter((_, i) => i !== index));
   };
 
   const duplicateItinerary = (index) => {
-    setItineraries([...itineraries, itineraries[index]]); // Duplicate the selected itinerary
+    setItineraries((prev) => [
+      ...prev,
+      { ...prev[index], name: `${prev[index].name} (Copy)` },
+    ]);
   };
 
   const shareItinerary = (index, email) => {
-    const updatedItineraries = [...itineraries];
-    updatedItineraries[index].sharedWith.push(email); // Add collaborator email to the sharedWith array
-    setItineraries(updatedItineraries);
+    setItineraries((prev) =>
+      prev.map((itinerary, i) =>
+        i === index
+          ? { ...itinerary, sharedWith: [...itinerary.sharedWith, email] }
+          : itinerary
+      )
+    );
   };
 
   return (
-    <div>
+    <div className="itinerary">
       <ItineraryForm onAddItinerary={addItinerary} />
       <ItineraryList
         itineraries={itineraries}
         onUpdate={updateItinerary}
         onDelete={deleteItinerary}
         onDuplicate={duplicateItinerary}
-        onShare={shareItinerary} // Passing share functionality
+        onShare={shareItinerary}
       />
     </div>
   );
-};
+}
 
-export default Main;
+export default Itinerary;

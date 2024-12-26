@@ -65,7 +65,7 @@
       "id": 2,
       "hotel_name": "Le Grand Hotel",
       "images": [
-     "hotel.jpg"
+     "hotel2.jpg"
       ],
       "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Gym"],
       "rating": 4.8,
@@ -75,7 +75,7 @@
       "id": 3,
       "hotel_name": "Taj View Resort",
       "images": [
-        "hotel.jpg"
+        "hotel3.jpg"
     
       ],
       "amenities": ["Free Wi-Fi", "Restaurant", "Pool", "Bar"],
@@ -86,7 +86,7 @@
       "id": 4,
       "hotel_name": "Agra Heritage Hotel",
       "images": [
-        "hotel.jpg"
+        "hotel4.jpg"
 
      
       ],
@@ -98,7 +98,7 @@
       "id": 5,
       "hotel_name": "Great Wall View Hotel",
       "images": [
-        "hotel.jpg"
+        "hotel5.webp"
 
      
       ],
@@ -110,13 +110,36 @@
       "id": 6,
       "hotel_name": "Grand Canyon Wilderness Resort",
       "images": [
-        "hotel.jpg",
+        "hotel6.webp",
         "abc.jpg"
      
       ],
       "amenities": ["Free Wi-Fi", "Spa", "Restaurant", "Outdoor Activities"],
       "rating": 4.4,
       "destination_id": 4
+    },
+    {
+      "id": 7,
+      "hotel_name": "Santorini Sunset Villa",
+      "images": [
+      
+        "11.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Private Pool", "Sea View", "Restaurant"],
+      "rating": 4.8,
+      "destination_id": 5
+    },
+    {
+      "id": 8,
+      "hotel_name": "Amazon Rainforest Retreat",
+      "images": [
+     
+        "33.jpg"
+      ],
+      "amenities": ["Free Wi-Fi", "Nature Trails", "Guided Tours", "Eco-Friendly Lodging"],
+      "rating": 4.7,
+      "destination_id": 6
     }
+    
   ]
 }

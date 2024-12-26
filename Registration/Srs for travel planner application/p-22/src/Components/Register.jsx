@@ -108,7 +108,7 @@ function Register() {
                 checked={termsAccepted}
                 onChange={() => setTermsAccepted(!termsAccepted)}
               />
-              <NavLink to="/terms" >Accept terms and conditions</NavLink>
+              <NavLink to="/terms" style={{color:"white"}} >Accept terms and conditions</NavLink>
               
             </label>
           </div>

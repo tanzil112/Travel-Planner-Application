@@ -15,6 +15,7 @@ import TermsAndC from './T&C';
 import Hotels from './Hotels';
 import Itinerary from './Itinerary';
 import Flights from "./Flights"
+import About from './Aboutus';
 function Index() {
   return (
     <div>
@@ -28,6 +29,7 @@ function Index() {
           <Route path='/terms' element={<TermsAndC/>}></Route>
           <Route path="/dashboard2" element={<ProtectedRoute><Dashboard2 /></ProtectedRoute>}/>
           <Route path='/home' element={<Dashboard2></Dashboard2>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
           <Route element={<Layout />}>
           <Route path='/itinerary' element={<Itinerary></Itinerary>}></Route>
           <Route path='/package' element={<Packages></Packages>}></Route>

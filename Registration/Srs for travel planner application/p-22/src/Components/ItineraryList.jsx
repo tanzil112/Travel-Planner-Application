@@ -12,7 +12,7 @@ const ItineraryList = ({ itineraries, onUpdate, onDelete, onDuplicate, onShare }
           onUpdate={onUpdate}
           onDelete={onDelete}
           onDuplicate={onDuplicate}
-          onShare={onShare} // Passing share functionality to each item
+          onShare={onShare}
         />
       ))}
     </ul>
