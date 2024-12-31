@@ -15,6 +15,7 @@ import TermsAndC from './T&C';
 import Hotels from './Hotels';
 import Itinerary from './Itinerary';
 import Flights from "./Flights"
+import Weather from './Weather';
 import About from './Aboutus';
 function Index() {
   return (
@@ -35,6 +36,7 @@ function Index() {
           <Route path='/package' element={<Packages></Packages>}></Route>
           <Route path='/hotels' element={<Hotels></Hotels>}></Route>
           <Route path='/flights' element={<Flights></Flights>}></Route>
+          <Route path='/weather' element={<Weather></Weather>}></Route>
           <Route path='/contact' element={<Contact></Contact>}></Route>
           </Route>
 

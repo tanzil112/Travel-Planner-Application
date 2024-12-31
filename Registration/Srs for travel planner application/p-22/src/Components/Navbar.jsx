@@ -31,6 +31,7 @@ function Navbar() {
       <NavLink to="/itinerary" className="navlink">Itinerary Organizer</NavLink>
       <NavLink to="/hotels" className={({ isActive }) => (isActive ? "navlink active" : "navlink")}>Hotels</NavLink>
       <NavLink to="/flights" className="navlink">Flights</NavLink>
+      <NavLink to="/weather" className="navlink">Weather</NavLink>
       <NavLink to="/contact" className="navlink">Contact Us</NavLink>
     </div>
   );
