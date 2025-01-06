@@ -1,0 +1,107 @@
+package com.example.demo.controller;
+
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:5173")
+public class AuthController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserService UserService; // Assuming this is your service for Razorpay operations.
+
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody User user) {
+        if (user.getUsername() == null || user.getUsername().isEmpty() ||
+            user.getPassword() == null || user.getPassword().isEmpty()) {
+            return ResponseEntity.badRequest().body("Username and password cannot be empty");
+        }
+
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+            return ResponseEntity.badRequest().body("Error: Username already exists!");
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+        return ResponseEntity.ok("User registered successfully!");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody User user) {
+        if (user.getUsername() == null || user.getUsername().isEmpty() ||
+            user.getPassword() == null || user.getPassword().isEmpty()) {
+            return ResponseEntity.badRequest().body("Username and password cannot be empty");
+        }
+
+        Optional<User> existingUserOptional = userRepository.findByUsername(user.getUsername());
+        if (existingUserOptional.isEmpty()) {
+            return ResponseEntity.badRequest().body("Invalid username or password");
+        }
+
+        User existingUser = existingUserOptional.get();
+        if (passwordEncoder.matches(user.getPassword(), existingUser.getPassword())) {
+            return ResponseEntity.ok("Login successful!");
+        } else {
+            return ResponseEntity.badRequest().body("Invalid username or password");
+        }
+    }
+
+    @PostMapping("/create-order")
+    public ResponseEntity<?> createOrder(@RequestBody Map<String, Object> data) {
+        try {
+            // Extract and validate input data
+            int amount = (int) data.getOrDefault("amount", 0);
+            String currency = (String) data.getOrDefault("currency", "INR");
+            String receipt = (String) data.getOrDefault("receipt", "default_receipt");
+
+            if (amount <= 0 || currency.isEmpty() || receipt.isEmpty()) {
+                return ResponseEntity.badRequest().body("Invalid order details provided");
+            }
+
+            // Create the order using Razorpay service
+            String order = UserService.createOrder(amount, currency, receipt);
+            return ResponseEntity.ok(order);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Failed to create order: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/verify-payment")
+    public ResponseEntity<?> verifyPayment(@RequestBody Map<String, String> data) {
+        try {
+            // Extract and validate input data
+            String orderId = data.get("razorpay_order_id");
+            String paymentId = data.get("razorpay_payment_id");
+            String signature = data.get("razorpay_signature");
+
+            if (orderId == null || paymentId == null || signature == null) {
+                return ResponseEntity.badRequest().body("Invalid payment details provided");
+            }
+
+            // Verify the payment
+            boolean isValid = UserService.verifyPayment(orderId, paymentId, signature);
+            if (isValid) {
+                return ResponseEntity.ok("Payment Verified");
+            } else {
+                return ResponseEntity.badRequest().body("Payment Verification Failed");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error verifying payment: " + e.getMessage());
+        }
+    }
+}
